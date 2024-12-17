@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form action="">
+        <div>
+            <label for="">Enter your name</label>
+            <input type="text" placeholder="Name">
+            <br>
+            <br>
+            <label for="">How old are you?</label>
+            <input type="text" placeholder="Age">
+        </div>
+        <br>
+        <div>
+            <label for="">Your favorite language?</label>
+            <br>
+            <br>
+            <input type="radio" name="languages" value="Java">
+            <label for="">Java</label>
+            <br>
+            <input type="radio" name="languages" value="Python">
+            <label for="">Python</label>
+            <br>
+            <input type="radio" name="languages" value="C++">
+            <label for="">C++</label>
+        </div>
+        <br>
+        <div>
+            <label for="">Which of the following vehicles do you have?</label>
+            <br>
+            <input type="checkbox" name="vehicle" value="Bike">
+            <label for="">Bike</label>
+            <br>
+            <input type="checkbox" name="vehicle" value="Car">
+            <label for="">Car</label>
+            <br>
+            <input type="checkbox" name="vehicle" value="Cycle">
+            <label for="">Cycle</label>
+            <br>
+            <input type="checkbox" name="vehicle" value="Rikshaw">
+            <label for="">Rikshaw</label>
+        </div>
+        <br>
+        
+        <br>
+        <div>
+            <select name="favcar" id="bikes">
+                <option value="new bike">new bike</option>
+                <option value="old bike" selected>old bike</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label for=""> Additional Information</label>
+            <br>
+            <textarea name="message" id="note" rows="10" ></textarea>
+        </div>
+        <br>
+        <!-- field set is used for accomulating related fields -->
+        <!-- used for making a separate section -->
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="">Enter first name</label><br>
+            <input type="text" placeholder="First Name">
+            <br><br>
+            <label for="">Enter middle name</label><br>
+            <input type="text" placeholder="Middle Name">
+            <br><br>
+            <label for="">Last Name</label><br>
+            <input type="text" placeholder="Last Name">
+        </fieldset>
+        <br><br>
+        <select name="dish" id="">
+            <option value="">Select</option>
+            <option value="biryani">Biryani</option>
+            <option value="korma">Korma</option>
+            <option value="fish">Fish</option>
+            <option value="potato">Potato</option>
+            <option value="chinese">Chinese Biryani</option>
+            <option value="beef">Beef</option>
+        </select>
+
+        <br><br>
+        <!-- in datalist we have some options that we can select or we can also write something -->
+        <input list="batch">
+         <datalist id="batch">
+            
+            <option value="19SW"></option>
+            <option value="20SW"></option>
+            <option value="21SW"></option>
+            <option value="22SW"></option>
+            <option value="23SW"></option>
+         </datalist>
+         <br><br>
+         <input type="file" name="cv" id="" value="">
+         <br><br>
+         <div>
+            <input type="submit" name="" id="" value="Submit">
+        </div>
+    </form>
+    
+</body>
+</html>
