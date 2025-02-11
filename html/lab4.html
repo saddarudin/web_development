@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">BOx1</div>
+      <div class="box">BOx2</div>
+      <div class="box">BOx3</div>
+    </div>
+    <p id="para">This is a para</p>
+    <!-- script is loosly typed language -->
+    <script>
+      document.getElementById("para").innerHTML = "This is not a para";
+      document.getElementById("para").style.backgroundColor = "yellow";
+      document.getElementById("para").style.color = "red";
+      //   querry selector and query selecter all
+      // query selector can take any css selector
+      // it only returns the first element that matches the selector
+      // varriable
+      // let and const are only accessible in the block they are defined in
+      // var is accessible in the whole function
+      //
+
+      function addNum(a, b) {
+        let x = a;
+        let y = b;
+        return x + y;
+      }
+      document.write(addNum(3, 5));
+      console.log(addNum(4, 6));
+    </script>
+  </body>
+</html>

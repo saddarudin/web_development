@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <div class="calculator">
+      <h2>Todo List</h2>
+      <form id="myForm">
+        <label for="task">Task:</label>
+        <input type="text" id="task" name="task" required /><br />
+        <span class="error" id="taskError"></span>
+        <br /><br />
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required />
+        <span class="error" id="dateError"></span>
+        <br /><br />
+
+        <button type="button" onclick="addTask()">Add Task</button>
+      </form>
+      <ul id="taskList"></ul>
+    </div>
+    <script>
+      function addTask() {
+        const task = document.getElementById("task").value;
+        const date = document.getElementById("date").value;
+        let isValid = true;
+
+        if (!task) {
+          document.getElementById("taskError").innerText = "Task is required.";
+          isValid = false;
+        } else {
+          document.getElementById("taskError").innerText = "";
+        }
+
+        if (!date) {
+          document.getElementById("dateError").innerText = "Date is required.";
+          isValid = false;
+        } else {
+          document.getElementById("dateError").innerText = "";
+        }
+
+        if (isValid) {
+          const li = document.createElement("li");
+          li.innerText = `${task} - ${date}`;
+          document.getElementById("taskList").appendChild(li);
+        }
+      }
+    </script>
+  </body>
+</html>

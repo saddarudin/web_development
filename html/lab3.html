@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation</title>
+    <style>
+      .error {
+        color: red;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Basic Form Validation</h2>
+    <form id="myForm">
+      <label for="username">UserName:</label>
+      <input type="text" id="username" name="username" required /><br />
+      <span class="error" id="usernameError"></span>
+      <br /><br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <span class="error" id="emailError"></span>
+      <br /><br />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+      <span class="error" id="passwordError"></span>
+      <br /><br />
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const username = document.getElementById("username").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value.trim();
+
+          document.getElementById("usernameError").textContent = "";
+          document.getElementById("emailError").textContent = "";
+          document.getElementById("passwordError").textContent = "";
+
+          let isValid = true;
+
+          // Username Validation
+          if (username.length < 3) {
+            document.getElementById("usernameError").textContent =
+              "Username must be at least 3 characters.";
+            isValid = false;
+          }
+
+          // Email Validation
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
+          if (!emailPattern.test(email)) {
+            document.getElementById("emailError").textContent =
+              "Please enter a valid email address.";
+            isValid = false;
+          }
+
+          // Password Validation
+          if (password.length < 6) {
+            document.getElementById("passwordError").textContent =
+              "Password must be at least 6 characters.";
+            isValid = false;
+          }
+
+          if (isValid) {
+            alert("Form Submitted Successfully");
+            e.target.reset(); // Reset the form
+          } else {
+            alert("Form Submission Failed");
+          }
+        });
+    </script>
+  </body>
+</html>

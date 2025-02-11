@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arithmetic Operations</title>
+    <style>
+      .error {
+        color: red;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cal">
+      <h2>Arithmetic Operations</h2>
+      <form id="myForm">
+        <label for="num1">Number 1:</label>
+        <input type="number" id="num1" name="num1" required /><br />
+        <span class="error" id="num1Error"></span>
+        <br /><br />
+
+        <label for="num2">Number 2:</label>
+        <input type="number" id="num2" name="num2" required />
+        <span class="error" id="num2Error"></span>
+        <br /><br />
+
+        <button type="button" onclick="performOperation('add')">Add</button>
+        <button type="button" onclick="performOperation('subtract')">
+          Subtract
+        </button>
+        <button type="button" onclick="performOperation('multiply')">
+          Multiply
+        </button>
+        <button type="button" onclick="performOperation('divide')">
+          Divide
+        </button>
+      </form>
+      <h3 id="result"></h3>
+    </div>
+    <script>
+      function validateInputs() {
+        const num1 = document.getElementById("num1").value;
+        const num2 = document.getElementById("num2").value;
+        let isValid = true;
+
+        if (!num1) {
+          document.getElementById("num1Error").innerText =
+            "Number 1 is required.";
+          isValid = false;
+        } else {
+          document.getElementById("num1Error").innerText = "";
+        }
+
+        if (!num2) {
+          document.getElementById("num2Error").innerText =
+            "Number 2 is required.";
+          isValid = false;
+        } else {
+          document.getElementById("num2Error").innerText = "";
+        }
+
+        return isValid;
+      }
+
+      function performOperation(operation) {
+        if (!validateInputs()) {
+          return;
+        }
+
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value);
+        let result;
+
+        switch (operation) {
+          case "add":
+            result = num1 + num2;
+            break;
+          case "subtract":
+            result = num1 - num2;
+            break;
+          case "multiply":
+            result = num1 * num2;
+            break;
+          case "divide":
+            if (num2 === 0) {
+              document.getElementById("result").innerText =
+                "Error: Cannot divide by zero.";
+              return;
+            }
+            result = num1 / num2;
+            break;
+        }
+
+        document.getElementById("result").innerText = `Result: ${result}`;
+      }
+    </script>
+  </body>
+</html>
